@@ -1,0 +1,88 @@
+:root, body{
+  --t-offset-nav: 100px;
+  --nav-height: 70px;
+
+  background: var(--background);
+  font-size: clamp(12px, 1.1vw, 14px)!important;
+}
+
+.MainApp {
+  min-height: 100vh;
+  @supports (min-height: 100dvh) {
+    min-height: 100dvh;
+  }
+  color: var(--text-primary);
+  background: var(--background);
+  position: relative;
+  z-index: 1;
+}
+
+
+.app {
+  &-text{
+    &-primary { color: var(--text-primary) !important; }
+    &-secondary { color: var(--text-secondary) !important; }
+    &-disabled { color: var(--text-disabled) !important; }
+  }
+
+  &-color{
+    &-primary { color: var(--primary-color) !important; }
+    &-on-primary { color: var(--primary-color-text) !important; }
+    &-secondary { color: var(--secondary-color) !important; }
+    &-on-secondary { color: var(--secondary-color-text) !important; }
+    &-link { color: var(--link-color) !important; }
+    &-accent { color: var(--accent-color) !important; }
+  }
+
+  &-bg {
+    &-paper { background-color: var(--paper) !important;}
+    &-primary {background-color: var(--primary-color) !important;}
+    &-primary-light {background-color: var(--primary-color-light) !important;}
+    &-secondary {background-color: var(--secondary-color) !important;}
+    &-secondary-light {background-color: var(--secondary-color-light) !important;}
+    &-background {background-color: var(--background) !important;}
+  }
+
+  &-shadow{
+    box-shadow: var(--shadow);
+    &-light{ box-shadow: var(--shadow-light); }
+  }
+
+  &-hover{
+    &-primary:hover { color: var(--primary-color) !important; }
+    &-secondary:hover {background-color: var(--secondary-color) !important;}
+  }
+
+  &-border{
+    &-divider{border: solid 1px var(--divider);}
+    &-primary{border: solid 1px var(--primary-color);}
+    &-secondary{border: solid 1px var(--secondary-color);}
+  }
+}
+
+hr {
+  border-color: var(--divider);
+}
+
+
+.xTable{
+  --custom-table-th-bg: var(--primary-color);
+  --custom-table-td-bg: var(--paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color) !important;
+}
+::-webkit-scrollbar-thumb:active {
+  background: var(--primary-color) !important;
+}
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-color: var(--primary-color) #ffffff00 !important;
+  }
+}
+
+.form{
+  background-color: var(--paper);
+  color: var(--text-primary);
+  border-color: var(--divider);
+}

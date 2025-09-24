@@ -1,0 +1,15 @@
+:root{
+  --primary-color: #18191a;
+  --primary-color-light: #18191a;
+  --primary-color-lightest: #18191a;
+  --primary-color-dark: #18191a;
+  --primary-color-text: #fff;
+
+  --secondary-color: hsla(75, 57%, 45%, 1);
+  --secondary-color-light: hsl(74, 69%, 55%);
+  --secondary-color-dark: hsl(75, 56%, 39%);
+  --secondary-color-text: #1E1414;
+
+  --link-color: var(--primary-color);
+  --accent-color: #6c60c9;
+}

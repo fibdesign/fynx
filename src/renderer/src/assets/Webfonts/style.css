@@ -1,0 +1,63 @@
+@import "./fontiran.css";
+body {
+	font-family: IRANSansX, 'Arial'  !important;
+}
+h1, h2, h3, h4, h5, h6,input, textarea, span ,p ,select , .persianFont, .ql-editor, button, option, .Vue-Toastification__toast-body  {
+	font-family: IRANSansX, 'Arial'  !important;
+}
+h1 {
+	font-weight: bold;
+}
+.text-small {
+	font-size: 0.8em;
+}
+.text-xsmall {
+	font-size: 0.6em;
+}
+.text-large {
+	font-size: 1.2em;
+}
+.text-xlarge {
+	font-size: 1.4em;
+}
+.text-underline {
+	text-decoration:underline;
+}
+
+.text-thin {
+	font-weight: 400;
+}
+.text-UltraLight {
+	font-weight: 400;
+}
+.text-light {
+	font-weight: 400;
+}
+.text-regular {
+	font-weight: normal;
+}
+.text-medium {
+	font-weight: 700;
+}
+.text-demibold {
+	font-weight: 700;
+}
+.text-bold {
+	font-weight: bold!important;
+}
+
+.text-extrabold {
+	font-weight: 700;
+}
+.text-black {
+	font-weight: 700;
+}
+.text-extrablack {
+	font-weight: 700;
+}
+.text-heavy {
+	font-weight: 700;
+}
+.paragraph{
+	font-size: 1rem;
+}

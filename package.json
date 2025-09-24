@@ -1,0 +1,99 @@
+{
+  "name": "desktop",
+  "version": "1.0.5",
+  "description": "Fynx browser",
+  "main": "./out/main/index.js",
+  "author": "fibdesign.ir",
+  "homepage": "https://fynx.fibdesign.ir",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint --cache .",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "typecheck:web": "vue-tsc --noEmit -p tsconfig.web.json --composite false",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev",
+    "build": "npm run typecheck && electron-vite build",
+    "postinstall": "electron-builder install-app-deps",
+    "build:unpack": "npm run build && electron-builder --dir",
+    "build:win": "npm run build && electron-builder --win",
+    "build:mac": "npm run build && electron-builder --mac",
+    "build:linux": "npm run build && electron-builder --linux"
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^3.0.2",
+    "@electron-toolkit/utils": "^4.0.0",
+    "@vueuse/core": "^13.6.0",
+    "axios": "^1.11.0",
+    "clipboard": "^2.0.11",
+    "electron-updater": "^6.3.9",
+    "fib-maxup": "^2.1.2",
+    "pinia": "^3.0.3",
+    "vue3-json-viewer": "^2.4.1"
+  },
+  "devDependencies": {
+    "@electron-toolkit/eslint-config-prettier": "3.0.0",
+    "@electron-toolkit/eslint-config-ts": "^3.0.0",
+    "@electron-toolkit/tsconfig": "^1.0.1",
+    "@iconify/vue": "^5.0.0",
+    "@types/node": "^22.16.5",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "electron": "^37.2.3",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^4.0.0",
+    "eslint": "^9.31.0",
+    "eslint-plugin-vue": "^10.3.0",
+    "prettier": "^3.6.2",
+    "sass": "^1.90.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.5",
+    "vue": "^3.5.17",
+    "vue-eslint-parser": "^10.2.0",
+    "vue-tsc": "^3.0.3"
+  },
+  "build": {
+    "productName": "Fynx",
+    "appId": "ir.fibdesign.fynx",
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://dl.fynx.fibdesign.ir"
+      }
+    ],
+    "compression": "maximum",
+    "copyright": "Copyright © 2025 FibDesign",
+    "asar": true,
+    "directories": {
+      "buildResources": "assets",
+      "output": "release/${version}"
+    },
+    "files": [
+      "out"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}.${version}[fibdesign.ir].${ext}",
+      "icon": "./resources/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Fynx",
+      "menuCategory": "FibDesign",
+      "installerHeaderIcon": "./resources/fibdesign.ico",
+      "installerIcon": "./resources/icon.ico"
+    }
+  }
+}
