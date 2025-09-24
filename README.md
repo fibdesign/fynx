@@ -1,3 +1,13 @@
+<div style="display: flex; align-items: center; justify-content: center">
+<img src="./resources/logo.png" alt="logo" style="max-width: 200px"/>
+</div>
+⚠️ Warning
+
+Fynx is still under active development and is not production-ready.
+Things may change quickly, and breaking changes are expected.
+
+Contributions, feedback, and testing are very welcome — if you’d like to help shape Fynx, feel free to join in!
+
 # Fynx — Local Dev Browser
 
 **Fynx** is a lightweight, local-only developer browser built with **Electron** and **Vue 3**. It streamlines local development by providing a single-window interface for testing local ports, inspecting JSON, and integrating common web-based dev tools.
