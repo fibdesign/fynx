@@ -83,6 +83,12 @@
 
       <div class="right gap">
         <button-primary
+          icon="mi:mobile"
+          class="btn-custom hover-accent hiddenInTablet"
+          title="Mobile View"
+          @click="mobileScreen = !mobileScreen"
+        />
+        <button-primary
           icon="mingcute:tool-line"
           class="btn-custom hover-accent hiddenInTablet"
           title="Dev Links"
@@ -119,7 +125,7 @@ import QrCodeModal from '@renderer/components/QrCodeModal.vue'
 
 const port = ref(localStorage.getItem('lastPort') || '5173')
 const store = useAppStore()
-const { ports, currentUrl, loading, showToolWeb } = storeToRefs(store)
+const { ports, currentUrl, loading, showToolWeb, mobileScreen } = storeToRefs(store)
 const input = ref<HTMLInputElement>()
 const load = (): void => {
   if (port.value.length < 4) return

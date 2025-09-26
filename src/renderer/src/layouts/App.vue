@@ -3,7 +3,8 @@
     <app-nav />
     <main class="row gap">
       <tool-web v-if="!!showToolWeb" />
-      <main-web class="main-web" />
+      <main-web v-if="mobileScreen" class="main-web" :class="{'mobile-horizontal': mobileScreen}" />
+      <main-web class="main-web" :class="{'mobile': mobileScreen}" />
     </main>
   </div>
 </template>
@@ -16,7 +17,7 @@ import { useAppStore } from '@renderer/stores/AppStore.js'
 import { storeToRefs } from 'pinia'
 
 const store = useAppStore()
-const { showToolWeb } = storeToRefs(store)
+const { showToolWeb, mobileScreen } = storeToRefs(store)
 </script>
 
 <style scoped lang="scss">
@@ -28,5 +29,17 @@ main {
 }
 .main-web{
   flex: 1;
+  &.mobile {
+    flex: unset;
+    max-width: 400px;
+    max-height: 800px;
+    margin: auto;
+
+    &-horizontal{
+      max-width: 800px;
+      max-height: 400px;
+      margin: auto;
+    }
+  }
 }
 </style>

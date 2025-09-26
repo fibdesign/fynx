@@ -27,6 +27,7 @@ After downloading, simply run the `.exe` file to install Fynx.
 - **Integrated developer tools** (inspect elements, console, etc.).
 - **Quick Dev Links**: access commonly used dev tools directly.
 - **QR code sharing**: share the current link instantly with devices on the same network.
+- **Mobile View**: View the app in mobile screen size (vertical and horizontal).
 
 ---
 

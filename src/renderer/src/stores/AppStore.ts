@@ -4,6 +4,7 @@ import type { WebviewTag } from 'electron'
 
 export const useAppStore = defineStore('app', () => {
   const showToolWeb = ref(false)
+  const mobileScreen = ref(false)
 
   const webEl = ref<WebviewTag | undefined>()
 
@@ -106,6 +107,7 @@ export const useAppStore = defineStore('app', () => {
     hardReload,
     loadCustomUrl,
     currentPath,
-    showToolWeb
+    showToolWeb,
+    mobileScreen,
   }
 })
