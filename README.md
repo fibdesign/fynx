@@ -1,84 +1,43 @@
-<div style="display: flex; align-items: center; justify-content: center">
-<img src="./resources/logo.png" alt="logo" style="max-width: 200px"/>
+<div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+  <img src="./resources/logo.png" alt="Fynx Logo" style="max-width: 200px;" />
 </div>
 
 # Fynx — Local Dev Browser
 
-**Fynx** is a lightweight, local-only developer browser built with **Electron** and **Vue 3**. It streamlines local development by providing a single-window interface for testing local ports, inspecting JSON, and integrating common web-based dev tools.
+**Fynx** is a lightweight, local-first developer browser built with **Electron** and **Vue 3**.
+It provides a streamlined single-window environment for working with local ports, inspecting JSON, and using popular web-based developer tools — all in one place.
 
 ---
 
-## Download
+## 🚀 Download
 
-You can download a prebuilt Windows installer for Fynx:
+Grab the latest prebuilt installer for Windows:
 
-[**Download Fynx (Windows|exe)**](https://github.com/fidesign/fynx/releases/latest)
+👉 [**Download Fynx (.exe)**](https://github.com/fidesign/fynx/releases/latest)
 
-> After downloading, run the `.exe` file to install Fynx on your system.
-
----
-
-## Features
-
-* Single-window dev browser for local ports.
-* JSON auto-detection and formatted viewer.
-* Port management: add, rename, remove, and remember last used port.
-* Navigation: back, forward, reload, hard reload.
-* Unreachable port detection with friendly UI.
-* Developer tools integration (open DevTools, optional side panel).
-* Frameless window with draggable nav, responsive layout.
----
-
-## Installation from Source
-
-1. **Clone the repo**
-
-```bash
-git clone https://github.com/fibdesign/fynx.git
-cd fynx
-```
-
-2. **Install dependencies**
-
-```bash
-npm install
-```
-
-3. **Run the app**
-
-```bash
-npm run dev
-```
-
-> Requires Node.js >= 18 and npm.
+After downloading, simply run the `.exe` file to install Fynx.
 
 ---
 
-## Usage
+## ✨ Features
 
-1. Enter a local port (e.g., `5173`) in the input field.
-2. Switch between saved ports with the nav buttons.
-3. Open dev tools with the DevTools button.
-4. JSON responses are automatically detected in the viewer.
-5. If a port is unreachable, a notification screen appears.
-
----
-
-## Contributing
-
-Fynx is **open-source**! Contributions welcome:
-
-* Bug fixes or small features via Pull Requests.
-* Suggest new dev tools integrations.
-* Improve layout, UI, or performance.
+- **Single-window environment** for testing local ports.
+- **JSON auto-detection** with a built-in formatted viewer.
+- **Port management**: add, rename, remove, and remember the last used port.
+- **Integrated developer tools** (inspect elements, console, etc.).
+- **Quick Dev Links**: access commonly used dev tools directly.
+- **QR code sharing**: share the current link instantly with devices on the same network.
 
 ---
 
-## License
+## 🤝 Contributing
 
-MIT License — see [LICENSE](LICENSE)
+Fynx is **open-source** and community-driven — contributions are always welcome!
 
----
+Ways you can help:
+- Submit bug fixes or new features via Pull Requests.
+- Suggest useful dev tool integrations.
+- Improve layout, UI, or performance.
 
-## Screenshots
-(soon)
+💌 Interested in contributing or collaborating?
+Reach out at [msghaderi99@gmail.com](mailto:msghaderi99@gmail.com).
