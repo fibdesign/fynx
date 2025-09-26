@@ -6,14 +6,15 @@
         <p class="f-center mb-2 app-text-secondary">
           open in other devices that are in the same network
         </p>
-        <QRCodeVue3
-          :value="link"
-          :dots-options="dotsOptions"
-          :corners-square-options="cornersSquareOptions"
-          imgclass="round-10"
-        />
-        <p class="f-center mt-2 app-text-secondary">
-          in Vite, user --host to app be able to opens in network
+        <qr-code :value="link" class="qr-image" />
+        <p class="mt-2 app-text-secondary">
+          Tip: Start your server with network access enabled so other devices can open it.
+          <a
+            href="https://fynx.fibdesign.ir/features/qr-code#network"
+            target="_blank"
+            class="app-color-accent"
+            >learn more</a
+          >
         </p>
       </div>
     </div>
@@ -25,7 +26,7 @@ import { computed, onMounted, ref, useTemplateRef } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import { useAppStore } from '@renderer/stores/AppStore.js'
 import { storeToRefs } from 'pinia'
-import QRCodeVue3 from 'qrcode-vue3'
+import QrCode from '@renderer/components/QrCode.vue'
 
 const appStore = useAppStore()
 const { port } = storeToRefs(appStore)
@@ -43,15 +44,6 @@ onClickOutside(target, () => {
 onMounted(async () => {
   IP.value = await window.api.getLocalIp()
 })
-
-const dotsOptions = {
-  type: 'rounded',
-  color: '#6c60c9',
-}
-const cornersSquareOptions = {
-  type: 'extra-rounded',
-  color: '#000000',
-}
 </script>
 
 <style scoped lang="scss">
@@ -69,7 +61,7 @@ const cornersSquareOptions = {
 .content {
   padding: 1rem;
   background-color: var(--background);
-  min-width: 400px;
+  width: 400px;
   border-radius: 20px;
 }
 </style>
