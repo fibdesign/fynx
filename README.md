@@ -13,7 +13,7 @@ It provides a streamlined single-window environment for working with local ports
 
 Grab the latest prebuilt installer for Windows:
 
-👉 [**Download Fynx (.exe)**](https://github.com/fidesign/fynx/releases/latest)
+👉 [**Download Fynx (.exe)**](https://fynx.fidesign.ir/download/)
 
 After downloading, simply run the `.exe` file to install Fynx.
 
