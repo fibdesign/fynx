@@ -1,12 +1,6 @@
 <div style="display: flex; align-items: center; justify-content: center">
 <img src="./resources/logo.png" alt="logo" style="max-width: 200px"/>
 </div>
-⚠️ Warning
-
-Fynx is still under active development and is not production-ready.
-Things may change quickly, and breaking changes are expected.
-
-Contributions, feedback, and testing are very welcome — if you’d like to help shape Fynx, feel free to join in!
 
 # Fynx — Local Dev Browser
 
@@ -33,13 +27,6 @@ You can download a prebuilt Windows installer for Fynx:
 * Unreachable port detection with friendly UI.
 * Developer tools integration (open DevTools, optional side panel).
 * Frameless window with draggable nav, responsive layout.
-
----
-
-## Planned Features
-
-* Favorites & quick-access dev tools URLs.
-
 ---
 
 ## Installation from Source
