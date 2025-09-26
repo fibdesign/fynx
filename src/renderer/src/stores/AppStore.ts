@@ -3,6 +3,8 @@ import { computed, ref } from 'vue'
 import type { WebviewTag } from 'electron'
 
 export const useAppStore = defineStore('app', () => {
+  const showToolWeb = ref(false)
+
   const webEl = ref<WebviewTag | undefined>()
 
   const port = ref(localStorage.getItem('lastPort') || '5173')
@@ -103,6 +105,7 @@ export const useAppStore = defineStore('app', () => {
     currentUrl,
     hardReload,
     loadCustomUrl,
-    currentPath
+    currentPath,
+    showToolWeb
   }
 })

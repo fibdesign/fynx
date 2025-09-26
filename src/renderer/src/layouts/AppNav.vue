@@ -2,7 +2,7 @@
   <div>
     <div class="row-a p-1 space drageable">
       <div class="row-a gap">
-        <img :src="logoUrl" class="w-max-30">
+        <img :src="logoUrl" class="w-max-30" alt="logo" title="Fynx">
         <p class="app-text-secondary">PortBar</p>
         <button-primary
           v-for="(item, index) in ports"
@@ -21,16 +21,19 @@
         <button-primary
           icon="flowbite:minus-outline"
           class="btn-custom hover-accent"
+          title="minimize"
           @click="store.minimize"
         />
         <button-primary
           icon="solar:maximize-square-minimalistic-broken"
           class="btn-custom hover-accent"
+          title="maximize"
           @click="store.toggleMaximize"
         />
         <button-primary
           icon="iconamoon:close-bold"
           class="btn-custom hover-danger"
+          title="close"
           @click="store.close"
         />
       </div>
@@ -40,21 +43,25 @@
         <button-primary
           icon="ion:chevron-back"
           class="btn-custom hover-accent"
+          title="Back"
           @click="store.goBack"
         />
         <button-primary
           icon="ion:chevron-forward"
           class="btn-custom hover-accent"
+          title="Forward"
           @click="store.goForward"
         />
         <button-primary
           icon="tabler:reload"
           class="btn-custom hover-accent"
+          title="Reload"
           @click="store.reload"
         />
         <button-primary
           icon="material-symbols:reset-iso"
           class="btn-custom hover-accent"
+          title="Hard Reload"
           @click="store.hardReload()"
         />
         <!-- Editable only after the localhost:PORT part -->
@@ -76,13 +83,21 @@
 
       <div class="right gap">
         <button-primary
+          icon="mingcute:tool-line"
+          class="btn-custom hover-accent hiddenInTablet"
+          title="Dev Links"
+          @click="showToolWeb = !showToolWeb"
+        />
+        <button-primary
           icon="solar:qr-code-outline"
           class="btn-custom hover-accent hiddenInTablet"
+          title="QR Code"
           @click="showQRCodeModal = true"
         />
         <button-primary
           icon="solar:code-bold-duotone"
           class="btn-custom hover-accent"
+          title="DevTools"
           @click="store.openDevTools"
         />
       </div>
@@ -104,7 +119,7 @@ import QrCodeModal from '@renderer/components/QrCodeModal.vue'
 
 const port = ref(localStorage.getItem('lastPort') || '5173')
 const store = useAppStore()
-const { ports, currentUrl, loading } = storeToRefs(store)
+const { ports, currentUrl, loading, showToolWeb } = storeToRefs(store)
 const input = ref<HTMLInputElement>()
 const load = (): void => {
   if (port.value.length < 4) return

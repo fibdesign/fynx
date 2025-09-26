@@ -1,34 +1,31 @@
 <template>
-  <div class="MainApp platinum">
-    <app-nav />
-    <main>
-      <div v-if="loading" class="h-100 h-100 row-c">
-        <iconify-icon icon="line-md:loading-alt-loop" class="h1" />
-      </div>
-      <unreachable-page v-else-if="unreachable" />
-      <webview
-        v-show="!showJSON"
-        id="webview"
-        :src="url"
-        allowpopups
-        partition="persist:jsonview"
-        @did-fail-load="unreachable = true"
-        @dom-ready="handleDomReady"
-      ></webview>
-      <json-viewer v-if="showJSON" :json="jsonContent" />
-    </main>
+  <div class="main-web">
+    <div v-if="loading" class="h-100 h-100 row-c">
+      <iconify-icon icon="line-md:loading-alt-loop" class="h1" />
+    </div>
+    <unreachable-page v-else-if="unreachable" />
+    <webview
+      v-show="!showJSON"
+      id="webview"
+      :src="url"
+      allowpopups
+      partition="persist:jsonview"
+      @did-fail-load="unreachable = true"
+      @dom-ready="handleDomReady"
+    ></webview>
+    <json-viewer v-if="showJSON" :json="jsonContent" />
   </div>
 </template>
 
 <script setup lang="ts">
-import AppNav from '@renderer/layouts/AppNav.vue'
-import { onMounted, ref } from 'vue'
-import { useAppStore } from '@renderer/stores/AppStore'
-import type { WebviewTag } from 'electron'
-import { storeToRefs } from 'pinia'
+
 import IconifyIcon from '@renderer/components/IconifyIcon.vue'
 import UnreachablePage from '@renderer/components/UnreachablePage.vue'
 import JsonViewer from '@renderer/components/JsonViewer.vue'
+import { useAppStore } from '@renderer/stores/AppStore.js'
+import { storeToRefs } from 'pinia'
+import { onMounted, ref } from 'vue'
+import type { WebviewTag } from 'electron'
 
 const store = useAppStore()
 const { url, loading, unreachable } = storeToRefs(store)
@@ -56,20 +53,14 @@ const handleDomReady = async () => {
     showJSON.value = false
   }
 }
-
 </script>
 
 <style scoped lang="scss">
-$padding: 20px;
-main {
-  width: calc(100vw - $padding);
-  height: calc(100vh - (var(--nav-height) * 2) - $padding);
-  margin: auto;
+.main-web{
   border-radius: 20px;
   overflow: clip;
 }
-
-webview {
+.main-web,webview {
   width: 100%;
   height: 100%;
 }
