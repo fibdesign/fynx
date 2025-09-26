@@ -7,7 +7,6 @@
 **Fynx** is a lightweight, local-first developer browser built with **Electron** and **Vue 3**.
 It provides a streamlined single-window environment for working with local ports, inspecting JSON, and using popular web-based developer tools — all in one place.
 
----
 
 ## 🚀 Download
 
@@ -17,7 +16,6 @@ Grab the latest prebuilt installer for Windows:
 
 After downloading, simply run the `.exe` file to install Fynx.
 
----
 
 ## ✨ Features
 
@@ -29,7 +27,6 @@ After downloading, simply run the `.exe` file to install Fynx.
 - **QR code sharing**: share the current link instantly with devices on the same network.
 - **Mobile View**: View the app in mobile screen size (vertical and horizontal).
 
----
 
 ## 🤝 Contributing
 
@@ -43,7 +40,6 @@ Ways you can help:
 💌 Interested in contributing or collaborating?
 Reach out at [msghaderi99@gmail.com](mailto:msghaderi99@gmail.com).
 
----
 ## Screenshots
 
 <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
