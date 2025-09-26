@@ -42,3 +42,10 @@ Ways you can help:
 
 💌 Interested in contributing or collaborating?
 Reach out at [msghaderi99@gmail.com](mailto:msghaderi99@gmail.com).
+
+---
+## Screenshots
+
+<div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+  <img src="./resources/screenshot.png" alt="Fynx screenshot" />
+</div>
