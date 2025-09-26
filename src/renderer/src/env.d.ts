@@ -12,6 +12,7 @@ declare global {
       close: () => void,
       showContextMenu: (_:any) => void,
       onContextMenuAction: any,
+      getLocalIp: () => string,
     }
   }
 }

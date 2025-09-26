@@ -30,6 +30,7 @@
     "electron-updater": "^6.3.9",
     "fib-maxup": "^2.1.2",
     "pinia": "^3.0.3",
+    "qrcode-vue3": "^1.7.1",
     "vue3-json-viewer": "^2.4.1"
   },
   "devDependencies": {

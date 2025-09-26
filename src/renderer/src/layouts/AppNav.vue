@@ -74,7 +74,12 @@
 
       <input ref="input" v-model="port" placeholder="PORT" class="inp" />
 
-      <div class="right">
+      <div class="right gap">
+        <button-primary
+          icon="solar:qr-code-outline"
+          class="btn-custom hover-accent hiddenInTablet"
+          @click="showQRCodeModal = true"
+        />
         <button-primary
           icon="solar:code-bold-duotone"
           class="btn-custom hover-accent"
@@ -83,6 +88,7 @@
       </div>
     </nav>
     <add-port-modal v-model="showAddPortModal" />
+    <qr-code-modal v-model="showQRCodeModal"/>
   </div>
 </template>
 
@@ -94,6 +100,7 @@ import { storeToRefs } from 'pinia'
 import AddPortModal from '@renderer/components/AddPortModal.vue'
 import IconifyIcon from '@renderer/components/IconifyIcon.vue'
 import logoUrl from '../../../../resources/logo.png'
+import QrCodeModal from '@renderer/components/QrCodeModal.vue'
 
 const port = ref(localStorage.getItem('lastPort') || '5173')
 const store = useAppStore()
@@ -108,6 +115,7 @@ const load = (): void => {
 watch(port, load)
 
 const showAddPortModal = ref(false)
+const showQRCodeModal = ref(false)
 
 // Renderer
 const handlePortRightClick = (event: MouseEvent, item: any) => {
