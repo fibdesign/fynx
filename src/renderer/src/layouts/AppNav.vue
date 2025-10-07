@@ -90,18 +90,21 @@
           icon="entypo:email"
           class="btn-custom hover-accent hiddenInTablet"
           title="Email SMTP"
+          :class="{'active': showEmailPage}"
           @click="showEmailPage = !showEmailPage"
         />
         <button-primary
           icon="mi:mobile"
           class="btn-custom hover-accent hiddenInTablet"
           title="Mobile View"
+          :class="{'active': mobileScreen}"
           @click="mobileScreen = !mobileScreen"
         />
         <button-primary
           icon="mingcute:tool-line"
           class="btn-custom hover-accent hiddenInTablet"
           title="Dev Links"
+          :class="{'active': showToolWeb}"
           @click="showToolWeb = !showToolWeb"
         />
         <button-primary
@@ -114,7 +117,7 @@
           icon="solar:code-bold-duotone"
           class="btn-custom hover-accent"
           title="DevTools"
-          @click="store.openDevTools"
+          @click="() => store.openDevTools()"
         />
       </div>
     </nav>

@@ -50,6 +50,7 @@ const api = {
     const emailFile = path.resolve('./email/last-email.json')
     try {
       const data = fs.readFileSync(emailFile, 'utf8')
+      ipcRenderer.send('reset-email-count')
       return JSON.parse(data)
     } catch {
       return null

@@ -3,6 +3,7 @@ import { simpleParser } from 'mailparser'
 import fs from 'fs'
 import path from 'path'
 
+
 const LAST_EMAIL_FILE = path.resolve('./email/last-email.json')
 
 const server = new SMTPServer({
@@ -22,7 +23,10 @@ const server = new SMTPServer({
         }
 
         fs.writeFileSync(LAST_EMAIL_FILE, JSON.stringify(email, null, 2))
-        console.log('📩 New email saved:', email.subject)
+
+        if (process.send) {
+          process.send({ type: 'new-email', email })
+        }
       })
       .catch(err => console.error('Email parse error:', err))
       .finally(callback)
@@ -30,5 +34,5 @@ const server = new SMTPServer({
 })
 
 server.listen(2525, '127.0.0.1', () => {
-  console.log('📮 SMTP server running on localhost:2525')
+  console.log('SMTP server running on localhost:2525')
 })

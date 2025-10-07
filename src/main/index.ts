@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, Menu, screen, session, shell, webContents } from 'electron'
+import { app, BrowserWindow, ipcMain, Menu, screen, session, shell, webContents, Notification } from 'electron'
 import { join, resolve } from 'path'
 import { electronApp, is, optimizer } from '@electron-toolkit/utils'
 import icon from '../../resources/logo.png?asset'
@@ -69,7 +69,7 @@ function createWindow(): void {
     shell.openExternal(details.url)
     return { action: 'deny' }
   })
-  
+
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
     mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
   } else {
@@ -98,8 +98,21 @@ app.whenReady().then(() => {
   })
 
   const smtpPath = resolve('./email/smtp-server.js')
-  fork(smtpPath)
+  const smtpProcess = fork(smtpPath)
+  smtpProcess.on('message', (msg:any) => {
+    if (msg.type === 'new-email') {
+      const { email } = msg
+      new Notification({
+        title: '📩 New Local Email',
+        body: `${email.subject}\nFrom: ${email.from}`,
+      }).show()
 
+      app.setBadgeCount(1)
+    }
+  })
+  ipcMain.on('reset-email-count', () => {
+    app.setBadgeCount(0)
+  })
   createWindow()
 
   app.on('activate', function () {

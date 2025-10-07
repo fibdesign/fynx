@@ -31,7 +31,7 @@ defineProps<PPrimaryButton>()
 <style scoped lang="scss">
 button {
   --custom-btn-bg: var(--primary-color);
-  --custom-btn-bg-active: var(--primary-color-dark);
+  --custom-btn-bg-active: var(--accent-color);
   --custom-btn-color: var(--primary-color-text);
   --custom-btn-color-active: var(--primary-color-text);
 
