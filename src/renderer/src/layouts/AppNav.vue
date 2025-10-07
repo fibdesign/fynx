@@ -77,11 +77,21 @@
         <div v-if="loading">
           <iconify-icon icon="line-md:loading-alt-loop" class="h4" />
         </div>
+        <div v-else class="row-a gap">
+          <img v-if="!!favicon" :src="favicon" alt="favicon" class="w-max-30">
+          <p>{{ title }}</p>
+        </div>
       </div>
 
       <input ref="input" v-model="port" placeholder="PORT" class="inp" />
 
       <div class="right gap">
+        <button-primary
+          icon="entypo:email"
+          class="btn-custom hover-accent hiddenInTablet"
+          title="Email SMTP"
+          @click="showEmailPage = !showEmailPage"
+        />
         <button-primary
           icon="mi:mobile"
           class="btn-custom hover-accent hiddenInTablet"
@@ -125,7 +135,7 @@ import QrCodeModal from '@renderer/components/QrCodeModal.vue'
 
 const port = ref(localStorage.getItem('lastPort') || '5173')
 const store = useAppStore()
-const { ports, currentUrl, loading, showToolWeb, mobileScreen } = storeToRefs(store)
+const { ports, currentUrl, loading, showToolWeb, mobileScreen, title, favicon, showEmailPage } = storeToRefs(store)
 const input = ref<HTMLInputElement>()
 const load = (): void => {
   if (port.value.length < 4) return

@@ -5,9 +5,15 @@ import type { WebviewTag } from 'electron'
 export const useAppStore = defineStore('app', () => {
   const showToolWeb = ref(false)
   const mobileScreen = ref(false)
+  const showEmailPage = ref(false)
+  const title = ref('')
+  const favicon = ref('')
 
   const webEl = ref<WebviewTag | undefined>()
-
+  const toolEl = ref<WebviewTag | undefined>()
+  const setToolView = (view: WebviewTag) => {
+    toolEl.value = view
+  }
   const port = ref(localStorage.getItem('lastPort') || '5173')
   const url = computed(() => `http://localhost:${port.value}`)
 
@@ -22,8 +28,30 @@ export const useAppStore = defineStore('app', () => {
       currentUrl.value = e.url
       currentPath.value = currentUrl.value.replaceAll(url.value, '')
     })
+
     view.addEventListener('did-start-loading', () => loading.value = true)
-    view.addEventListener('did-stop-loading', () => loading.value = false)
+    view.addEventListener('did-stop-loading', () => {
+      loading.value = false
+    })
+    view.addEventListener('page-title-updated', (event:any) => {
+      title.value = event?.title ?? ''
+      view
+        .executeJavaScript(
+          `
+              (() => {
+                const icon = document.querySelector('link[rel*="icon"]')
+                return icon ? icon.href : '/favicon.ico'
+              })()
+            `,
+        )
+        .then((url) => {
+          favicon.value = url
+        })
+    })
+    view.addEventListener('page-favicon-updated', (event:any) => {
+      console.error(event.favicons)
+    //   favicon.value = event.favicons[0] ?? ''
+    })
   }
   const reload = () => webEl.value?.reload()
   const hardReload = () => webEl.value?.reloadIgnoringCache()
@@ -109,5 +137,9 @@ export const useAppStore = defineStore('app', () => {
     currentPath,
     showToolWeb,
     mobileScreen,
+    setToolView,
+    title,
+    favicon,
+    showEmailPage,
   }
 })

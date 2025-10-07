@@ -3,7 +3,7 @@
     <img :src="logoUrl" class="w-max-200">
     <p class="h6 text-light app-text-secondary">Cannot reach port <span class="app-color-accent">{{ port }}</span>. Did you start the app?</p>
     <button-primary class="btn-custom-r row-c gap-5" icon="tabler:reload"
-            @click="store.reload"> retry
+            @click="store.loadApp()"> retry
     </button-primary>
   </div>
 </template>

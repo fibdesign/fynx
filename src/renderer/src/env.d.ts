@@ -10,7 +10,9 @@ declare global {
       toggleMaximize: () => void,
       minimize: () => void,
       close: () => void,
+      readLastEmail: () => any,
       showContextMenu: (_:any) => void,
+      setToolView: (id:number) => void,
       onContextMenuAction: any,
       getLocalIp: () => string,
     }

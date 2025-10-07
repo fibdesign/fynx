@@ -10,7 +10,7 @@
         <p class="mt-2 app-text-secondary">
           Tip: Start your server with network access enabled so other devices can open it.
           <a
-            href="https://fynx.fibdesign.ir/features/qr-code#network"
+            href="https://fynx.fibdesign.ir/network-access.html"
             target="_blank"
             class="app-color-accent"
             >learn more</a

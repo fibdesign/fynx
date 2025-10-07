@@ -61,6 +61,11 @@ const tools = [
     icon: 'carbon:character-sentence-case',
     link: 'https://loremipsum.io/generator',
   },
+  {
+    title: 'PHPMyAmin',
+    icon: 'simple-icons:phpmyadmin',
+    link: 'http://localhost/phpmyadmin',
+  },
 ]
 
 const tool = ref<string>(tools[0].link)
@@ -75,6 +80,7 @@ onMounted(() => {
 
   webview.addEventListener('did-start-loading', () => (loading.value = true))
   webview.addEventListener('did-stop-loading', () => (loading.value = false))
+  store.setToolView(webview)
 })
 </script>
 
