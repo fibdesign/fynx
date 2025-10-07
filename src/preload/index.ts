@@ -3,7 +3,6 @@ import { electronAPI } from '@electron-toolkit/preload'
 import * as http from 'node:http'
 import os from 'os';
 import fs from 'fs'
-import path from 'path'
 
 const api = {
   loadURL: (url: string) => ipcRenderer.send('load-url', url),
@@ -46,8 +45,8 @@ const api = {
 
     return addr;
   },
-  readLastEmail: () => {
-    const emailFile = path.resolve('./email/last-email.json')
+  readLastEmail: async () => {
+    const emailFile = await ipcRenderer.invoke('get-last-email-file')
     try {
       const data = fs.readFileSync(emailFile, 'utf8')
       ipcRenderer.send('reset-email-count')

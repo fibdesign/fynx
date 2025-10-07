@@ -10,7 +10,7 @@ declare global {
       toggleMaximize: () => void,
       minimize: () => void,
       close: () => void,
-      readLastEmail: () => any,
+      readLastEmail: () => Promise<any>,
       showContextMenu: (_:any) => void,
       setToolView: (id:number) => void,
       onContextMenuAction: any,

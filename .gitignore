@@ -5,4 +5,4 @@ out
 .eslintcache
 *.log*
 release
-email/last-email.json
+src/main/email/last-email.json

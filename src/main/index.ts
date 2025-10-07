@@ -1,8 +1,8 @@
 import { app, BrowserWindow, ipcMain, Menu, screen, session, shell, webContents, Notification } from 'electron'
-import { join, resolve } from 'path'
+import { join } from 'path'
 import { electronApp, is, optimizer } from '@electron-toolkit/utils'
 import icon from '../../resources/logo.png?asset'
-import { fork } from 'child_process'
+import { LAST_EMAIL_FILE, startSMTPServer } from './email/smtp-server.js'
 
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
@@ -52,7 +52,9 @@ function createWindow(): void {
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
-
+  ipcMain.handle('get-last-email-file', () => {
+    return LAST_EMAIL_FILE
+  })
   ipcMain.on('show-context-menu', (event, template) => {
     const menu = Menu.buildFromTemplate(
       template.map((item: any) => ({
@@ -97,19 +99,15 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window)
   })
 
-  const smtpPath = resolve('./email/smtp-server.js')
-  const smtpProcess = fork(smtpPath)
-  smtpProcess.on('message', (msg:any) => {
-    if (msg.type === 'new-email') {
-      const { email } = msg
-      new Notification({
-        title: '📩 New Local Email',
-        body: `${email.subject}\nFrom: ${email.from}`,
-      }).show()
+  startSMTPServer((email) => {
+    new Notification({
+      title: '📩 New Local Email',
+      body: `${email.subject}\nFrom: ${email.from}`,
+    }).show()
 
-      app.setBadgeCount(1)
-    }
+    app.setBadgeCount(1)
   })
+
   ipcMain.on('reset-email-count', () => {
     app.setBadgeCount(0)
   })
